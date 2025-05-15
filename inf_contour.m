@@ -33,8 +33,13 @@ for i=1:nx
 end
 
 c = -0.15:0.05:0.15;
+figure;
 contour(xm,ym,a,c);
+title("influence coefficient a - exact");
+
 figure;
 contour(xm,ym,b,c);
+title("influence coefficient b - exact");
+
 figure;
-contour(xm,ym,psi,c)
+contour(xm,ym,psi,c);
