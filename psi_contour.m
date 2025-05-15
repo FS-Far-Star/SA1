@@ -11,6 +11,8 @@ xc = 0.75;
 yc = 0.5;
 Gamma = 3.0;
 
+xm = zeros(nx, ny);
+ym = zeros(nx, ny);
 
 for i=1:nx
     for j=1:ny
