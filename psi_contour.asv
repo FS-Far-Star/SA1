@@ -9,7 +9,7 @@ ymin = -2;
 ymax = 2;
 xc = 0.75;
 yc = 0.5;
-Gamma = 3.0;
+Gamma = 3.;
 
 
 for i=1:nx
