@@ -9,7 +9,7 @@ ymin = -2;
 ymax = 2;
 
 del = 1.5;
-Gamma = 1.0; 
+Gamma = 3.0; 
 xm = zeros(nx, ny);
 ym = zeros(nx, ny);
 a = zeros(nx, ny);
@@ -31,10 +31,7 @@ for i=1:nx
         for n = i:nv+1
             xc = n*del/nv;
             yc = 0; 
-            Gamma_a = dx*(gamma*(1-(xc/del)));
-            Gamma_b = dx*gamma*(xc/del);
-            psi_a(i,j) = psi_a(i,j) + psipv(xc,yc,Gamma_a,xm(i,j),ym(i,j));
-            psi_b(i,j) = psi_b(i,j) + psipv(xc,yc,Gamma_b,xm(i,j),ym(i,j));
+            psi_a(i,j) = psi_a(i,j) + psipv(xc,yc,Gamma,xm(i,j),ym(i,j));
         end
     end
 end
@@ -49,9 +46,4 @@ contour(xm,ym,b,c);
 title("influence coefficient b - exact");
 
 figure;
-contour(xm,ym,psi_a,c);
-title("influence coefficient a - approx");
-
-figure;
-contour(xm,ym,psi_b,c);
-title("influence coefficient b - approx");
+contour(xm,ym,psi,c);
