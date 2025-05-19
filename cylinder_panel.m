@@ -10,6 +10,8 @@ ymin = -2;
 ymax = 2;
 
 theta = (0:np)*2*pi/np;
+xs = zeros(np+1);
+ys = zeros(np+1);
 
 for i = 1:np+1
     xs(i) = cos(theta(i));
@@ -18,7 +20,7 @@ end
 
 xm = zeros(nx, ny);
 ym = zeros(nx, ny);
-psi = zeros(nx, ny);
+% psi = zeros(nx, ny);
 
 for i=1:nx
     for j=1:ny
@@ -27,11 +29,12 @@ for i=1:nx
     end
 end
 
-for i=1:nx
-    for j=1:ny
-        psi(i,j) = ym(i,j);
-    end
-end
+% for i=1:nx
+%     for j=1:ny
+%         psi(i,j) = ym(i,j);
+%     end
+% end
+psi = ym;
 
 for i=1:nx
     for j=1:ny
@@ -42,8 +45,8 @@ for i=1:nx
             yb = ys(k+1);
             gamma_a = -2*sin(theta(k));
             gamma_b = -2*sin(theta(k+1));
-            [a,b] = panelinf(xa,ya,xb,yb,xm(i,j),ym(i,j));
-            psi(i,j) = psi(i,j) + a*gamma_a + b;
+            [infa,infb] = panelinf(xa,ya,xb,yb,xm(i,j),ym(i,j));
+            psi(i,j) = psi(i,j) + infa*gamma_a + infb*gamma_b;
         end
     end
 end
