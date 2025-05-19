@@ -16,10 +16,21 @@ for i = 1:np+1
 end
 
 A = build_lhs(xs,ys);
-b = build_rhs(xs,ys,alpha);
-gam = A\b;
-total_circulation = sum(gam)*(2*pi/np)
+b0 = build_rhs(xs,ys,0);
+b1 = build_rhs(xs,ys,0.1);
+gam0 = A\b0;
+gam1 = A\b1;
+total_circulation0 = sum(gam0)*(2*pi/np);
+total_circulation1 = sum(gam1)*(2*pi/np);
+disp(total_circulation0);
+disp(total_circulation1);
 
-plot(theta/pi,gam)
+figure;
+plot(theta/pi,gam0)
+title("alpha = 0");
+axis([0 2 -2.5 2.5]);
 
-% axis([0 2 -2.5 2.5]);
+figure;
+plot(theta/pi,gam1)
+title("alpha = 0.1");
+axis([0 2 -2.5 2.5]);

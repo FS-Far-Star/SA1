@@ -28,11 +28,11 @@ for i=1:nx
         [a(i,j),b(i,j)] = refpaninf(del,xm(i,j),ym(i,j));
         psi_a(i,j) = 0;
         psi_b(i,j) = 0;
-        for n = i:nv+1
-            xc = n*del/nv;
+        for n = 1:nv
+            xc = n*del/(nv+1);
             yc = 0; 
-            Gamma_a = dx*(gamma*(1-(xc/del)));
-            Gamma_b = dx*gamma*(xc/del);
+            Gamma_a = dx*(gamma*(1-(n/(nv+1))));
+            Gamma_b = dx*gamma*(n/(nv+1));
             psi_a(i,j) = psi_a(i,j) + psipv(xc,yc,Gamma_a,xm(i,j),ym(i,j));
             psi_b(i,j) = psi_b(i,j) + psipv(xc,yc,Gamma_b,xm(i,j),ym(i,j));
         end

@@ -29,11 +29,6 @@ for i=1:nx
     end
 end
 
-% for i=1:nx
-%     for j=1:ny
-%         psi(i,j) = ym(i,j);
-%     end
-% end
 psi = ym;
 
 for i=1:nx
@@ -52,4 +47,7 @@ for i=1:nx
 end
 
 c = -1.75:0.25:1.75;
+
+figure;
 contour(xm,ym,psi,c);
+title('cylinder flow')
