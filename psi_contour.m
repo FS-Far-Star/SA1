@@ -29,4 +29,6 @@ for i=1:nx
 end
 
 c = -0.4:0.2:1.2;
+figure;
 contour(xm,ym,psi,c)
+title("psi contour");
