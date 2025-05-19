@@ -4,7 +4,7 @@ close all
 np = 100;
 nx = 51;
 ny = 41;
-alpha = 0.1;
+alpha = 0;
 
 theta = (0:np)*2*pi/np;
 xs = zeros(np+1);
@@ -18,7 +18,7 @@ end
 A = build_lhs(xs,ys);
 b = build_rhs(xs,ys,alpha);
 gam = A\b;
-sum(gam)
+total_circulation = sum(gam)*(2*pi/np)
 
 plot(theta/pi,gam)
 
