@@ -10,6 +10,8 @@ ymin = -2;
 ymax = 2;
 
 theta = (0:np)*2*pi/np;
+xs = zeros(np+1);
+ys = zeros(np+1);
 
 for i = 1:np+1
     xs(i) = cos(theta(i));
@@ -27,11 +29,7 @@ for i=1:nx
     end
 end
 
-for i=1:nx
-    for j=1:ny
-        psi(i,j) = ym(i,j);
-    end
-end
+psi = ym;
 
 for i=1:nx
     for j=1:ny
