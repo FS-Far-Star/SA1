@@ -3,7 +3,9 @@ function rhsvec = build_rhs(xs,ys,alpha)
     for n = 1:length(xs)
         b(n,1) = alpha_freestream(xs(n),ys(n),alpha) - alpha_freestream(xs(n+1),ys(n+1),alpha);
     end
-    b(length(xs)) = alpha_freestream(xs(length(xs)),ys(length(xs)),alpha) - alpha_freestream(xs(1),ys(1),alpha);
+    b(1,1) = 0;
+    b(length(xs),1) = 0;
+    % b(length(xs),1) = alpha_freestream(xs(length(xs)),ys(length(xs)),alpha) - alpha_freestream(xs(1),ys(1),alpha);
     rhsvec = b;
 end
 

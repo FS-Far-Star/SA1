@@ -22,7 +22,8 @@ end
 A = build_lhs(xs,ys);
 b = build_rhs(xs,ys,alpha);
 gam = A\b;
+sum(gam)
 
-plot(theta,gam)
+plot(theta/pi,gam)
 
-axis([0 2 -2.5 2.5]);
+% axis([0 2 -2.5 2.5]);
