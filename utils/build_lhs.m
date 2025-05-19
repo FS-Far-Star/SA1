@@ -1,10 +1,10 @@
 function lhsmat = build_lhs(xs,ys)
-<<<<<<< HEAD
+
 np = length(xs) - 1;
 psip = zeros(np,np+1);
 
-for i = 0:np
-    for j = 0:np+1
+for i = 1:np
+    for j = 1:np+1
         if j == 1 
             [a,b] = panelinf(xs(j),ys(j),xs(j+1),ys(j+1),xs(i),ys(i));
             psip(i,j) = a;
@@ -22,8 +22,12 @@ end
 
 lhsmat = zeros(np+1,np+1);
 
-for i = 0:np
-    for j = 0:np+1
+for i = 1:np
+    for j = 1:np+1
+        if i+1 > np
+            lhsmat(i+1,j) = psip(1,j) - psip(i,j);
+        else
         lhsmat(i+1,j) = psip(i+1,j) - psip(i,j);
+        end
     end
 end
