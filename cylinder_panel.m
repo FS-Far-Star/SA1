@@ -4,10 +4,6 @@ close all
 np = 100;
 nx = 51;
 ny = 41;
-% xmin = -2.5;
-% xmax = 2.5;
-% ymin = -2;
-% ymax = 2;
 alpha = 0.1;
 
 theta = (0:np)*2*pi/np;
