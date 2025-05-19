@@ -27,16 +27,3 @@ for i = 0:np
         lhsmat(i+1,j) = psip(i+1,j) - psip(i,j);
     end
 end
-=======
-
-np = length(xs) - 1;
-psip = zeros(np,np+1);
-lhsmat = zeros(np+1,np+1);
-
-
-
-
-
-end
-
->>>>>>> dc06ad18c3ee0e77966260c0c8a4a17de2967aab
