@@ -29,7 +29,7 @@ hold on
 plot(x,thickhist(:,1))
 plot(x,theta7)
 plot(x,theta9)
-legend('theta','theta7', 'theta9','Location','southeast')
+legend('θ','θ_7', 'θ_9','Location','southeast')
 ax = gca;
 ax.ColorOrder = mycolors;
 ylabel('θ/L')
