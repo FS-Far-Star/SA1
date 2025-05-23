@@ -15,7 +15,7 @@ end
 
 thwaites = 0;
 theta_t = zeros(1,length(x));
-theta_b = zeros(1,length(x));
+%theta_b = zeros(1,length(x));
 
 i = 1;
 while laminar && i < n

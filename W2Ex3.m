@@ -41,14 +41,16 @@ while laminar && i < n
     end
 end
 
+format shortE;
+
 if int ~= 0
 disp(['Natural transition at ' num2str(x(int)) ...
- ' with Rethet ' num2str(Rethet)])
+ ' with Rethet ' sprintf('%.1e', Rethet)]) %2sf
 end
 
 if ils ~= 0
 disp(['Separation at ' num2str(x(ils)) ...
-    ' with Rethet ' num2str(Rethet)])
+ ' with Rethet ' sprintf('%.1e', Rethet)])
 end
 
 % hold on

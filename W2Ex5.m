@@ -15,9 +15,19 @@ thick0(2) = 1.80*thick0(1);
 
 
 He = thickhist(:,2)./thickhist(:,1);
+He = He(:);
+threshold_He = 1.46;
+cross_idx = find((He(1:end-1) > threshold_He) & (He(2:end) <= threshold_He), 1);
 
 x = x0 + delx;
-threshold = ones(length(x))*1.46;
+threshold = ones(length(x))*threshold_He;
+
+if ~isempty(cross_idx)
+    idx_before = cross_idx;
+    idx_after = cross_idx + 1;
+end
+
+fprintf('Separation occurs between x/L = %.2e and x/L = %.2e\n', x(idx_before), x(idx_after));
 
 mycolors = [1 0 0; 0 0 1];
 
