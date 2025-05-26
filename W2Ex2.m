@@ -4,8 +4,8 @@ close all
 dx = .01;
 x = (0:dx:1);
 ue = zeros(1,length(x));
-Re = 1 * 10^6;
-duedx = -0.2;
+Re = 100 * 10^6;
+duedx = 0.2;
 n = length(x);
 laminar = true;
 
@@ -15,7 +15,6 @@ end
 
 thwaites = 0;
 theta_t = zeros(1,length(x));
-%theta_b = zeros(1,length(x));
 
 i = 1;
 while laminar && i < n
@@ -31,12 +30,6 @@ while laminar && i < n
 
     if log(Rethet) >= 18.4*He - 21.74
         laminar = false;
-        disp([x(i) Rethet/1000])
+        disp([x(i) Rethet])
     end
 end
-
-% hold on
-% plot(x,theta_t)
-% legend('Thwaites','Location','southeast')
-% ylabel('θ/L')
-% xlabel('x/L') 

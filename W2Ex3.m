@@ -4,7 +4,7 @@ close all
 dx = .01;
 x = (0:dx:1);
 ue = zeros(1,length(x));
-Re = 1.8 * 10^6;
+Re = 1 * 10^6;
 duedx = -0.5;
 n = length(x);
 laminar = true;
@@ -17,7 +17,6 @@ end
 
 thwaites = 0;
 theta_t = zeros(1,length(x));
-theta_b = zeros(1,length(x));
 
 i = 1;
 
@@ -52,9 +51,3 @@ if ils ~= 0
 disp(['Separation at ' num2str(x(ils)) ...
  ' with Rethet ' sprintf('%.1e', Rethet)])
 end
-
-% hold on
-% plot(x,theta_t)
-% legend('Thwaites','Location','southeast')
-% ylabel('θ/L')
-% xlabel('x/L') 
