@@ -2,7 +2,7 @@ clear
 close all
 
 global Re ue0 duedx
-Re_list = [1e5, 1e6, 1e4];
+Re_list = [1e6 1e7];
 legend_labels = cell(1, numel(Re_list));
 
 figure(1); clf; hold on; 
@@ -11,12 +11,11 @@ figure(2); clf; hold on;
 for j = 1:length(Re_list)
     Re = Re_list(j);
     ue0 = 1;
-    duedx = -0.6;
     
     dx = .01;
     x = (0:dx:1);
     ue = zeros(1,length(x));
-    duedx = -0.25;
+    duedx = 0;
     n = length(x);
     laminar = true;
     int = 0;
@@ -30,7 +29,6 @@ for j = 1:length(Re_list)
     
     thwaites = 0;
     theta_t = zeros(1,length(x));
-    theta_b = zeros(1,length(x));
     
     He = zeros(n,1);
     He(1) = 1.57258;
@@ -48,7 +46,7 @@ for j = 1:length(Re_list)
         H = thwaites_lookup(m);
         He(i) = laminar_He(H);
     
-        if log(Rethet) >= 18.4*He - 21.74
+        if log(Rethet) >= 18.4*He(i) - 21.74
             int = i;
             laminar = false;
         elseif m >= 0.09
