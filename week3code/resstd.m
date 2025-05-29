@@ -1,4 +1,4 @@
-%  Script for use in studying resolution requirements of panel method 
+%  Script for use in st`udying resolution requirements of panel method 
 %  calculation.  To alter incidence, edit 'alpha' below.  To alter
 %  Van de Vooren geometry parameters, see vdvfoil.m.
 
@@ -17,8 +17,8 @@ xlabel('x/c')
 ylabel('y/c')
 title('Van de Vooren aerofoil')
 
-disp('Starting 100 panel calculation ...')
-np = 100;
+disp('Starting 1600 panel calculation ...')
+np = 1600;
 [xs ys] = make_upanels( xsin, ysin, np );
 
 A = build_lhs ( xs, ys );
@@ -66,7 +66,7 @@ plot(xsin,-cpex,xs1,-cp1,'--',xs2,-cp2,'-.',xs4,-cp4,'-+',xs8,-cp8,'-x')
 xlabel('x/c')
 ylabel('-c_p')
 title('Van de Vooren cps; varying panel size')
-legend('exact','100pans','200pans','400pans','800pans')
+legend('exact','1600pans','200pans','400pans','800pans')
 
 % figure(3)
 % plot(xsin,-cpex,xs1,-cp1,'--')
