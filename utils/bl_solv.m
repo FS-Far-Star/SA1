@@ -25,7 +25,7 @@ while laminar && i < np
     theta_t(i) = ( 0.45/Re * ue(i)^(-6) * thwaites)^0.5;
 
     Rethet = Re * ue(i) * theta_t(i);
-
+    duedx = (ue(i-1) - ue(i))/(x(i-1)-x(i));
     m = -Re * theta_t(i)^2 * duedx;
     H = thwaites_lookup(m);
     He(i) = laminar_He(H);
@@ -59,7 +59,7 @@ while its == 0 && i<np
     end
 end
 
-He(i:np) = He(i);
+% He(i:np) = He(i);
 for m =i:np-1
     theta_t(m+1) = theta_t(m)*(ue(m)/ue(m+1))^(2.803+2);
 end
