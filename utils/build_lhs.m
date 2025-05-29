@@ -30,4 +30,16 @@ for i = 1:np-1
         lhsmat(i+1,j) = psip(i+1,j) - psip(i,j);
     end
 end
+lhsmat(1,1) = 1;
+lhsmat(1,2) = -1;
+lhsmat(1,3) = 0.5;
+lhsmat(1,np) = 1;
+lhsmat(1,np-1) = -0.5;
+lhsmat(np+1,1) = 1;
+lhsmat(np+1,np+1) = 1;
+
+% gamma_1 = ((-2gamma_np - -gamma_np) + (2gamma_2-gamma_1))/2   
+% inverted signs for bottom half
+% gamma_np+1 = -gamma_1
+
 end
