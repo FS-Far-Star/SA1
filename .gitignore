@@ -1,5 +1,5 @@
 *.asv
 test.m
-utils\*.asv
+utils/*.asv
 *.pdf
-Data\*.mat
+Data/*.mat
