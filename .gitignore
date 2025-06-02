@@ -2,4 +2,4 @@
 test.m
 utils\*.asv
 *.pdf
-Data\*
+Data\*.mat
