@@ -19,7 +19,7 @@ fprintf(1, '%s\n\n', ['Reading in parameter file: ' parfile])
 secfile = ['Geometry/' section '.surf'];
 [xk yk] = textread ( secfile, '%f%f' );
 
-% [xk yk] = naca4('0013');
+% [xk yk] = naca4('0012');
 
 %  Generate high-resolution surface description via cubic splines
 nphr = 5*np;
@@ -180,7 +180,7 @@ save ( fname, 'xs', 'ys', 'alpha', 'clswp', 'cdswp', 'lovdswp' )
 data = load(['Data/' caseref '.mat']);
 
 % Inspect variable names
-disp(fieldnames(data));
+% disp(fieldnames(data));
 
 % Assuming variable names are: alpha, cl, cd
 alpha = data.alpha;  % Angle of attack (degrees)
