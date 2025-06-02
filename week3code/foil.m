@@ -19,6 +19,8 @@ fprintf(1, '%s\n\n', ['Reading in parameter file: ' parfile])
 secfile = ['Geometry/' section '.surf'];
 [xk yk] = textread ( secfile, '%f%f' );
 
+% [xk yk] = naca4('0013');
+
 %  Generate high-resolution surface description via cubic splines
 nphr = 5*np;
 [xshr yshr] = splinefit ( xk, yk, nphr );

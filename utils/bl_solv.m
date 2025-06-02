@@ -46,7 +46,7 @@ while its == 0 && i<np
     thick0(1) = theta_t(i-1);
     thick0(2) = delta_e;
     ue0 = ue(i-1);
-    duedx = (ue(i-1) - ue(i))/(x(i-1)-x(i));
+    duedx = (ue(i) - ue(i-1))/(x(i)-x(i-1));
     [~, thickhist] = ode45(@thickdash,[0,x(i)-x(i-1)],thick0);
     theta_t(i) = thickhist(end,1);
     delta_e = thickhist(end,2);
