@@ -1,4 +1,4 @@
-Section identifier              : naca0008
+Section identifier              : test_4
 Number of panels                : 800
 Reynolds number                 : 2e7
 Range of incidences (degrees)   : -15:1:15

@@ -17,7 +17,7 @@ fprintf(1, '%s\n\n', ['Reading in parameter file: ' parfile])
 
 %  Read in the section geometry
 secfile = ['Geometry/' section '.surf'];
-% [xk yk] = naca4('0008');
+% [xk yk] = naca4('5409');
 [xk yk] = textread ( secfile, '%f%f' );
 
 %  Generate high-resolution surface description via cubic splines
@@ -177,6 +177,7 @@ save ( fname, 'xs', 'ys', 'alpha', 'clswp', 'cdswp', 'lovdswp' )
 
 % Load the .mat file
 data = load(['Data/' caseref '.mat']);
+data_5 = load(['Data/' 'tryout_5.mat']);
 
 % Inspect variable names
 % disp(fieldnames(data));
@@ -186,6 +187,8 @@ alpha = data.alpha;  % Angle of attack (degrees)
 cl = data.clswp;        % Lift coefficient
 cd = data.cdswp;        % Drag coefficient
 ld = data.lovdswp;      % Lift to Drag
+xs = data_5.xs;
+cp = data_5.cp;
 
 % Plot Cl vs Alpha
 figure;
@@ -217,4 +220,12 @@ plot(alpha, ld, 'r-', 'LineWidth', 2);
 xlabel('\alpha (deg)');
 ylabel('Lift to Drag');
 title('Lift to Drag vs angle of attack');
+grid on;
+
+% Plot C_p
+figure;
+plot(xs, cp, 'r-', 'LineWidth', 2);
+xlabel('xs');
+ylabel('C_pp');
+title('C_p along the section');
 grid on;
