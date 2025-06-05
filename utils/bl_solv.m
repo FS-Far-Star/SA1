@@ -13,6 +13,7 @@ its = 0;
 
 thwaites = 0;
 theta_t = zeros(1,length(x));
+delta_e = zeros(1,length(x));
 
 He = zeros(np,1);
 He(1) = 1.57258;
@@ -29,6 +30,7 @@ while laminar && i < np
     m = -Re * theta_t(i)^2 * duedx;
     H = thwaites_lookup(m);
     He(i) = laminar_He(H);
+    delta_e(i) = theta_t(i) * He(i);
 
     if log(Rethet) >= 18.4*He(i) - 21.74
         int = i;
@@ -49,24 +51,24 @@ while its == 0 && i<np
     duedx = (ue(i) - ue(i-1))/(x(i)-x(i-1));
     [~, thickhist] = ode45(@thickdash,[0,x(i)-x(i-1)],thick0);
     theta_t(i) = thickhist(end,1);
-    delta_e = thickhist(end,2);
-    He(i) = delta_e/theta_t(i);
+    delta_e(i) = thickhist(end,2);
+    He(i) = delta_e(i)/theta_t(i);
     
-    H = (11.*He(i)+15)./(48.*He(i)-59);
-    delta_e(i) = H.*theta_t(i);
+    % H = (11.*He(i)+15)./(48.*He(i)-59);
+    % delta_e(i) = H.*theta_t(i);
     if He(i)>1.58 && ils~=0 && itr == 0
         itr = i;
     end
     if He(i)<1.46
         its = i;
-        delta_e(i) = 2.803.*theta_t(i);
+        delta_e(i) = 1.46*theta_t(i);
     end
 end
 
 % He(i:np) = He(i);
 for m =i:np-1
     theta_t(m+1) = theta_t(m)*(ue(m)/ue(m+1))^(2.803+2);
-    delta_e(m+1) = 2.803*theta_t(m+1);
+    delta_e(m+1) = 1.46*theta_t(m+1);
 end
 
 
