@@ -177,7 +177,7 @@ save ( fname, 'xs', 'ys', 'alpha', 'clswp', 'cdswp', 'lovdswp' )
 
 % Load the .mat file
 data = load(['Data/' caseref '.mat']);
-data_5 = load(['Data/' 'tryout_5.mat']);
+data_5 = load(['Data/' caseref '_3.2.mat']);
 
 % Inspect variable names
 % disp(fieldnames(data));
