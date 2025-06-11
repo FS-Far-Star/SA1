@@ -1,4 +1,4 @@
-Section identifier              : S1223
+Section identifier              : E58_mk3
 Number of panels                : 800
-Reynolds number                 : 5E5
+Reynolds number                 : 5e5
 Range of incidences (degrees)   : -12:0.2:12

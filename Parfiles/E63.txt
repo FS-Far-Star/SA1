@@ -1,0 +1,4 @@
+Section identifier              : E63
+Number of panels                : 800
+Reynolds number                 : 5E5
+Range of incidences (degrees)   : -8:0.2:8

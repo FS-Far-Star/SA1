@@ -1,4 +1,4 @@
-Section identifier              : test_5
+Section identifier              : high_35
 Number of panels                : 800
 Reynolds number                 : 2e7
 Range of incidences (degrees)   : -15:0.2:15

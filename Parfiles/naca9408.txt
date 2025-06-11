@@ -1,0 +1,4 @@
+Section identifier              : naca9408
+Number of panels                : 1600
+Reynolds number                 : 2e7
+Range of incidences (degrees)   : -8:0.2:8
